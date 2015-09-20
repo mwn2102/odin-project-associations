@@ -3,13 +3,17 @@ class Event < ActiveRecord::Base
     has_many :event_attendees, through: :user_events, source: :attendee
     has_many :user_events, foreign_key: :attended_event_id
     
-    def self.upcoming
-        where("date >= ?", Time.now).order(:date)
-    end
+    # def self.upcoming
+    #     where("date >= ?", Time.now).order(:date)
+    # end
     
-    def self.past
-        where("date <= ?", Time.now).order(:date)
-    end
+    # def self.past
+    #     where("date <= ?", Time.now).order(:date)
+    # end
+    
+    scope :upcoming, -> {where("date >= ?", Time.now)}
+    scope :past, -> {where("date <= ?", Time.now)}
+    
     
     
 end

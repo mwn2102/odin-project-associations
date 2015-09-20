@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
     end
     
     def previous_events
-        self.attended_events.where("date <= ?", Time.now).order(:date)
+        self.attended_events.past
+        # self.attended_events.where("date <= ?", Time.now).order(:date)    can use the past scope defined in event model
     end
 end
