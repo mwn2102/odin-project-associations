@@ -1,1 +1,6 @@
-<%= @event.description %>
+<p><%= @event.description %></p>
+<ul>
+<%@event.event_attendees.each do |attendee| %>
+<li><%=attendee.name%></li>
+<%end%>
+</ul>

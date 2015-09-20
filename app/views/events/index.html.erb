@@ -1,5 +1,13 @@
+<h2> Upcoming events: </h2>
 <ul>
-<%@events.each do |event| %>
+<%@events_upcoming.each do |event| %>
+<li><%=event.date%> - <%=event.description%> </li>
+<%end%>
+</ul>
+
+<h2> Past events: </h2>
+<ul>
+<%@events_prev.each do |event| %>
 <li><%=event.date%> - <%=event.description%> </li>
 <%end%>
 </ul>
