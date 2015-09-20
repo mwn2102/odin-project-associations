@@ -1,1 +1,9 @@
 <h1>User show page for <%=@user.name%> </h1>
+
+<h2> User Created Events: </h2>
+
+<ul>
+<%@user.created_events.each do |event| %>
+<li><%=event.date%> - <%=event.description%> </li>
+<%end%>
+</ul>
